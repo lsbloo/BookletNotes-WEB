@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+</head>
+<body>
+ <h1>Lista de usuarios Cadastrados</h1>
+ <h3> <a href="/cadastrarUsuario" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline </i>Cadastrar Usuario</a></h3>
+ <a href="/usuariosCadastrados"><h3>Listar Usuarios</h3></a>
+ 
+ <table class="container">
+ <thead>
+ 	<tr>
+ 	<th>Nome</th>
+ 	<th>Login</th>
+ 	<th>endereco</th>
+ 	<th>password</th>
+ 	<th>cpf</th>
+ 	</tr>
+ </thead>
+ <tbody> <!-- th:href="${(#mvc.url('UC#detUser').arg(0,usuario.id)).build() -->
+ 	<tr th:each="usuario : ${usuarios}">
+ 	<td><span th:text="${usuario.nome}"></span></td>
+ 	<td><span th:text="${usuario.login}"></span></td>
+ 	<td><span th:text="${usuario.endereco}"></span></td>
+ 	<td><span th:text="${usuario.password}"></span></td>
+ 	<td><span th:text="${usuario.cpf}"></span></td>
+  </tr>
+ </tbody>
+ </table>
+ <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    </body>
+</body>
+</html>
